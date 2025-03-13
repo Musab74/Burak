@@ -3,7 +3,6 @@ function getPositive(arr: number[]): string {
     return arr.filter(num => num > 0).join("");
 }
 
-// Test the function
 console.log(getPositive([1, -4, 2, 5]));
 
 
