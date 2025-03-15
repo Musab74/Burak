@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
-import Router from './router';
+import RouterAdmin from './routerAdmin';
+import router from './router';
 
 /** 1-enterance  */
 const app = express();
@@ -17,9 +18,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 
  /** 4-Routers */
-app.use("/", Router) //middleWare DP 
-// full tizim Architectual pattern
+ // full tizim Architectual pattern
 
+ // ADMIN ka loyihasini qurish sifatida:::: SSR :EJS
+app.use("/admin", RouterAdmin); //SSR :EJS
+app.use("/", router);//MiddleWare DP :::: SPA: react loyihasiga restAPI sifatida
 
 
 export default app;   //moduleni export qilish  
