@@ -1,5 +1,7 @@
 import express from 'express';
 import path from 'path';
+import Router from './router';
+
 /** 1-enterance  */
 const app = express();
 
@@ -14,8 +16,10 @@ app.use(express.json());
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 
- /**
-  4-Routers
-  */
+ /** 4-Routers */
+app.use("/", Router) //middleWare DP 
+// full tizim Architectual pattern
+
+
 
 export default app;   //moduleni export qilish  
