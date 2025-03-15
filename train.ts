@@ -1,9 +1,36 @@
-// H - TASK
-function getPositive(arr: number[]): string {
-    return arr.filter(num => num > 0).join("");
+
+// I Task
+
+function majorityElement(arr: number[]): number | null {
+    let count: { [key: number]: number } = {};
+
+    arr.forEach((element) => {
+        count[element] = (count[element] || 0) + 1;
+    });
+
+    let maxNum: number | null = null;
+    let maxCount: number = 0;
+
+    for (let num in count) {
+        let currentCount = count[num]; 
+        if (currentCount > maxCount) {
+            maxCount = currentCount;
+            maxNum = Number(num);
+        }
+    }
+
+    return maxNum;
 }
 
-console.log(getPositive([1, -4, 2, 5]));
+console.log(majorityElement([1, 3, 4, 2, 3])); // checking 
+
+
+// H - TASK
+// function getPositive(arr: number[]): string {
+//     return arr.filter(num => num > 0).join("");
+// }
+
+// console.log(getPositive([1, -4, 2, 5]));
 
 
 // // G - TASK
